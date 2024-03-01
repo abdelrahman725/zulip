@@ -64,7 +64,7 @@ manipulations (which in Zulip are almost exclusively done via
 
 The
 [unit test file](https://github.com/zulip/zulip/blob/main/web/tests/zjquery.test.js)
-for `zjquery` is designed to be also serve as nice documentation for
+for `zjquery` is designed to also serve as nice documentation for
 how to use `zjquery`, and is **highly recommended reading** for anyone
 working on or debugging the Zulip node tests.
 
