@@ -2591,6 +2591,14 @@ class AnalyticsBouncerTest(BouncerTestCase):
             f"Support URL: {billing_session.support_url()}",
             email.body,
         )
+        self.assertIn(
+            f"Internal billing notice for {billing_session.billing_entity_display_name}.",
+            email.body,
+        )
+        self.assertIn(
+            "Investigate why remote realm is marked as locally deleted when it's on a paid plan.",
+            email.body,
+        )
         self.assertEqual(
             f"{billing_session.billing_entity_display_name} on paid plan marked as locally deleted",
             email.subject,
@@ -4101,7 +4109,7 @@ class TestGetAPNsPayload(PushNotificationTest):
             "alert": {
                 "title": "Cordelia, Lear's daughter, King Hamlet, Othello, the Moor of Venice",
                 "subtitle": "King Hamlet:",
-                "body": "*This organization has disabled including message content in mobile push notifications*",
+                "body": "New message",
             },
             "sound": "default",
             "badge": 0,
@@ -4297,7 +4305,7 @@ class TestGetGCMPayload(PushNotificationTest):
                 "event": "message",
                 "zulip_message_id": message.id,
                 "time": datetime_to_timestamp(message.date_sent),
-                "content": "*This organization has disabled including message content in mobile push notifications*",
+                "content": "New message",
                 "content_truncated": False,
                 "server": settings.EXTERNAL_HOST,
                 "realm_id": hamlet.realm.id,
