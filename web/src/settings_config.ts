@@ -114,25 +114,24 @@ export const web_stream_unreads_count_display_policy_values = {
     },
 };
 
-// <li> classes, The default order of left_sidebar possible home views.
-export const possible_home_views_default_order = [
-    "top_left_inbox",
-    "top_left_recent_view",
-    "top_left_all_messages",
-];
-
 export const web_home_view_values = {
     inbox: {
         code: "inbox",
         description: $t({defaultMessage: "Inbox"}),
+        class: "top_left_inbox",
+        order: 1,
     },
     recent_topics: {
         code: "recent_topics",
         description: $t({defaultMessage: "Recent conversations"}),
+        class: "top_left_recent_view",
+        order: 2,
     },
     all_messages: {
         code: "all_messages",
         description: $t({defaultMessage: "Combined feed"}),
+        class: "top_left_all_messages",
+        order: 3,
     },
 };
 
